@@ -1,6 +1,6 @@
 FROM prestashop/base:7.2-apache
 
-LABEL maintainer="Thomas Nabord <thomas.nabord@prestashop.com>"
+LABEL maintainer="Jakub Stejskal <jakub@jakub-stejskal.cz>"
 
 RUN apt-get update \
 	&& apt-get install -y curl \
@@ -17,5 +17,5 @@ RUN php -r "copy('https://getcomposer.org/installer', '/tmp/composer-setup.php')
 RUN chown www-data:www-data -R /var/www/html/
 
 COPY config_files/docker_run_git.sh /tmp/
-RUN chmod +x /tmp/docker_run_git.sh
+
 CMD ["/tmp/docker_run_git.sh"]
